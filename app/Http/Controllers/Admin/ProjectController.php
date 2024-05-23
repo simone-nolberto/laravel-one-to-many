@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -24,7 +25,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -39,12 +42,14 @@ class ProjectController extends Controller
 
         $validated['slug'] = $slug;
 
+
         if ($request->has('cover_image')) {
             $img_path = Storage::put('uploads', $validated['cover_image']);
 
             $validated['cover_image'] = $img_path;
         }
 
+        // dd($validated);
 
         Project::create($validated);
         return to_route('admin.projects.index')->with('message', 'Project successfully created!');

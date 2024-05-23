@@ -28,6 +28,7 @@ class StoreProjectRequest extends FormRequest
             'cover_image' => 'nullable|image|max:500',
             'source_code' => 'nullable',
             'site_link' => 'nullable',
+            'type_id' => 'nullable'
 
 
         ];

@@ -24,7 +24,7 @@
                         <th scope="col">Cover Image</th>
                         <th scope="col">Author</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Slug</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -44,7 +44,7 @@
                             </td>
                             <td>{{ $project->author }}</td>
                             <td>{{ $project->project_title }}</td>
-                            <td>{{ $project->slug }}</td>
+                            <td>{{ $project->type }}</td>
                             <td>
 
                                 <a class="btn btn-dark" href="{{ route('admin.projects.show', $project) }}"><i
