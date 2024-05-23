@@ -2,7 +2,6 @@
 
 
 @section('content')
-
     <header class="py-3 bg-dark text-white">
         <div class="container">
             <h1>Create a new project</h1>
@@ -29,7 +28,7 @@
                 <small id="helpId" class="form-text text-muted">Type the author here</small>
 
                 @error('author')
-                    <div class="text-dange py-2">
+                    <div class="text-danger py-2">
 
                         {{ $message }}
                     </div>
@@ -44,7 +43,7 @@
                 <small id="helpId" class="form-text text-muted">Type the title of the your project</small>
 
                 @error('project_title')
-                    <div class="text-dange py-2">
+                    <div class="text-danger py-2">
 
                         {{ $message }}
                     </div>
@@ -60,7 +59,7 @@
                 <small id="helpId" class="form-text text-muted">Add an image here</small>
 
                 @error('cover_image')
-                    <div class="text-dange py-2">
+                    <div class="text-danger py-2">
 
                         {{ $message }}
                     </div>
@@ -75,11 +74,18 @@
                     <option selected disabled>Select one of the following type</option>
 
                     @foreach ($types as $type)
-                        <option value="{{ $type->id }} {{ $type->id == old('type_id') ? 'selected' : 'untyped' }}">
+                        <option value="{{ $type->id }} {{ $type->id == old('type_id') ? 'selected' : '' }}">
                             {{ $type->name }}</option>
                     @endforeach
 
                 </select>
+
+                @error('type_id')
+                    <div class="text-danger py-2">
+
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
 
@@ -91,7 +97,7 @@
                 <small id="helpId" class="form-text text-muted">Add a link to your GitHub here</small>
 
                 @error('source_code')
-                    <div class="text-dange py-2">
+                    <div class="text-danger py-2">
 
                         {{ $message }}
                     </div>
@@ -107,7 +113,7 @@
                 <small id="helpId" class="form-text text-muted">Add the link to your site here</small>
 
                 @error('site_link')
-                    <div class="text-dange py-2">
+                    <div class="text-danger py-2">
 
                         {{ $message }}
                     </div>
@@ -121,7 +127,7 @@
                 <small id="helpId" class="form-text text-muted">Add a brief description of your project</small>
 
                 @error('description')
-                    <div class="text-dange py-2">
+                    <div class="text-danger py-2">
 
                         {{ $message }}
                     </div>

@@ -44,14 +44,11 @@
                             </td>
                             <td>{{ $project->author }}</td>
                             <td>{{ $project->project_title }}</td>
-                            <td>{{ $project->type }}</td>
+                            <td>{{ $project->type ? $project->type->name : 'untyped' }}</td>
                             <td>
 
                                 <a class="btn btn-dark" href="{{ route('admin.projects.show', $project) }}"><i
                                         class="fa-solid fa-eye"></i></a>
-
-                                <a class="btn btn-dark" href="{{ route('admin.projects.edit', $project) }}"><i
-                                        class="fa-solid fa-pen"></i></a>
 
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#modalId-{{ $project->id }}">

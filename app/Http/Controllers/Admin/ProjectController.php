@@ -68,7 +68,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -76,6 +77,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+
         $validated = $request->validated();
 
         $slug = Str::slug($request->project_title, '-');
@@ -94,10 +96,12 @@ class ProjectController extends Controller
             $validated['cover_image'] = $img_path;
         }
 
+        // dd($validated);
+
 
         $project->update($validated);
 
-        return to_route('admin.projects.index')->with('message', "Project '$project->project_title' successfully updated!");
+        return to_route('admin.projects.show', compact('project'))->with('message', "Project '$project->project_title' successfully updated!");
     }
 
     /**

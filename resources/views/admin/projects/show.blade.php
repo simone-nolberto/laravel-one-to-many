@@ -3,8 +3,9 @@
 
 @section('content')
     <header class="py-3 bg-dark text-white">
-        <div class="container">
+        <div class="container d-flex align-items-center justify-content-between">
             <h1>{{ $project->project_title }}</h1>
+            <a class="btn btn-primary" href="{{ route('admin.projects.index') }}"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
     </header>
@@ -20,6 +21,24 @@
                 @endif
             </div>
             <div class="col">
+
+                <div class="card">
+
+                    <div class="card-body bg-white">
+                        <h2 class="card-title"> {{ $project->title }} </h2>
+                        <p class="card-text">
+                            {{ $project->description }}
+                        </p>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between">
+                        <span><strong>Author: </strong>{{ $project->author }}</span>
+                        <span><strong>Created at: </strong>{{ $project->created_at }}</span>
+                        <span><strong>Type: </strong>{{ $project->type ? $project->type->name : 'untyped' }}</span>
+
+                    </div>
+
+                </div>
 
                 <div class="container my-5 d-flex justify-content-between">
                     <a class="btn btn-primary" href="{{ route('admin.projects.edit', $project) }}"><i
@@ -64,22 +83,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="card-body bg-white">
-                        <h2 class="card-title"> {{ $project->title }} </h2>
-                        <p class="card-text">
-                            {{ $project->description }}
-                        </p>
-                    </div>
-
-                    <div class="card-footer d-flex justify-content-between">
-                        <span><strong>Author: </strong>{{ $project->author }}</span>
-                        <span><strong>Created at: </strong>{{ $project->created_at }}</span>
-                    </div>
-
                 </div>
 
             </div>
