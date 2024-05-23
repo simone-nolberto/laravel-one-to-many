@@ -68,6 +68,7 @@
                 @enderror
             </div>
 
+
             <div class="mb-3">
                 <label for="type_id" class="form-label">Type</label>
                 <select class="form-select" name="type_id" id="type_id">
@@ -135,14 +136,11 @@
                 @enderror
             </div>
 
-
             <button type="submit" class="btn btn-primary">
                 Update
             </button>
 
-
         </form>
-
 
     </div>
 @endsection
