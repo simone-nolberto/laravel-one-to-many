@@ -96,7 +96,7 @@ class ProjectController extends Controller
             $validated['cover_image'] = $img_path;
         }
 
-        dd($validated);
+        //dd($validated);
 
 
         $project->update($validated);
