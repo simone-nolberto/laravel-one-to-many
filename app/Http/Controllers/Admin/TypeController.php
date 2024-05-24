@@ -58,7 +58,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -66,7 +66,15 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $validated = $request->validated();
+
+        $slug = Str::slug($request->name, '-');
+
+        $validated['slug'] = $slug;
+
+        $type->update($validated);
+
+        return to_route('admin.types.show', compact('type'))->with('message', "Type '$type->name' successfully updated!");
     }
 
     /**
@@ -74,6 +82,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        return to_route('admin.types.index')->with('message', "Project '$type->name' successfully deleted!");
     }
 }
