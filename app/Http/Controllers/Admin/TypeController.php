@@ -42,7 +42,7 @@ class TypeController extends Controller
         // dd($validated);
 
         Type::create($validated);
-        return to_route('admin.projects.index')->with('message', 'Project successfully created!');
+        return to_route('admin.types.index')->with('message', 'Type successfully added!');
     }
 
     /**
