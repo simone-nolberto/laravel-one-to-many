@@ -23,7 +23,15 @@
                     <img width="140" src="{{ asset('storage/' . $project->cover_image) }}" alt="">
                 @endif
             </div>
+            
             <div class="col">
+
+
+                <div class="container d-flex justify-content-between my-5">
+                    <a class="btn btn-success" href="{{ $project->source_code }}">GitHub Repo</a>
+                    <a class="btn btn-success" href="{{ $project->site_link }}">Site View</a>
+
+                </div>
 
                 <div class="card">
 
@@ -82,20 +90,19 @@
                                         </button>
 
                                     </form>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                
+
             </div>
 
 
 
-            <div class="container d-flex justify-content-between my-5">
-                <span><strong>Click here for the GitHub repo: </strong>{{ $project->source_code }}</span>
-                <span><strong>Click here to visit the actual site: </strong>{{ $project->site_link }}</span>
-            </div>
         </div>
     </div>
 @endsection

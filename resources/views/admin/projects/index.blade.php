@@ -17,7 +17,7 @@
         @include('partials.session-message')
 
         <div class="table-responsive">
-            <table class="table table-light">
+            <table class="table table-light border border-2 table-striped table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
